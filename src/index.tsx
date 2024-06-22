@@ -10,7 +10,11 @@ import Users from './components/Users/Users';
 import User from './components/User/User';
 import {loader as userLoader} from './components/User/User'
 import {loader as usersLoader} from './components/Users/Users'
-import EditUser from './components/User/EditUser';
+import EditUser from './components/EditUser/EditUser';
+import { Tasks } from './components/Tasks/Tasks';
+import { loader as tasksLoader } from './components/Tasks/Tasks'
+import { loader as taskLoader } from './components/Task/Task'
+import { TaskComponent } from './components/Task/Task';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +36,18 @@ const router = createBrowserRouter([
             path: ':id/edit',
             element: <EditUser></EditUser>,
             loader: userLoader
+          }
+        ]
+      },
+      {
+        path: 'tasks',
+        element: <Tasks></Tasks>,
+        loader: tasksLoader,
+        children: [
+          {
+            path: ':id',
+            element: <TaskComponent></TaskComponent>,
+            loader: taskLoader
           }
         ]
       }
