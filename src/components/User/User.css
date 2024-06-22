@@ -1,0 +1,28 @@
+.user-info {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    text-align: left;
+    gap: 1rem;
+}
+
+.user-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+#user {
+    max-width: 40rem;
+    display: flex;
+  }
+  
+#user h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+#user h1 + p {
+    margin: 0;
+}
