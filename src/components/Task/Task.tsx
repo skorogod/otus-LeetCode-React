@@ -51,6 +51,9 @@ export const TaskComponent:FC = () => {
                 value={code}
                 onChange={setCode}
             />
+            <div>
+                <button type="submit">Submit</button>
+            </div>
         </div>
     )
 }
