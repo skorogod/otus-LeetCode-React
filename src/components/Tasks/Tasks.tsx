@@ -1,6 +1,6 @@
 import React from "react";
 import { FC } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { taskService } from "../../api/services/taskService";
 import { Box } from "@mui/material";
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
@@ -30,6 +30,9 @@ export function Tasks() {
           headerName: 'Solution',
           width: 150,
           editable: true,
+          renderCell: (params) => (
+            <Link to={params.value}>Перейти</Link>
+          )
         },
         {
           field: 'level',
@@ -40,7 +43,7 @@ export function Tasks() {
       ];
 
     return (
-        <Box sx={{ height: 400, width: '100%' }}>
+        <Box sx={{ height: 400, width: '100%', marginTop: '50px' }}>
           <DataGrid
             rows={prepareRows(tasks)}
             columns={columns}

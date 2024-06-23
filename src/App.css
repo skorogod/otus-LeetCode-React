@@ -16,3 +16,16 @@
   color: inherit;
   text-decoration: inherit;
 }
+
+.custom-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto ;
+  display: flex;
+}
+
+.form__field-group {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 0.8rem;
+}

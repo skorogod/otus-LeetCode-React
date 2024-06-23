@@ -1,4 +1,4 @@
-import { Form, useLoaderData } from "react-router-dom";
+import { ActionFunctionArgs, Form, useLoaderData, useNavigate } from "react-router-dom";
 import type { User } from "../../shared/interfaces/User";
 import './EditUser.css'
 import { UpdateParams, userService } from "../../api/services/userService";
@@ -7,14 +7,15 @@ type ActionParams = {
     id: number,
 }
 
-export async function action({request, params} : {request: Request, params: ActionParams}) {
+export async function action({request, params} : ActionFunctionArgs<{request: Request, params: ActionParams}>) {
     const formData = await request.formData()
     const updates = Object.fromEntries(formData)
-    await userService.updateUser(params.id, updates)
+    await userService.updateUser(Number(params.id), updates)
 }
 
 export default function EditUser() {
   const user = useLoaderData() as User;
+  const navigate = useNavigate()
 
   return (
     <Form className="form edit-user-form" method="post" id="contact-form">
@@ -47,7 +48,9 @@ export default function EditUser() {
         </div>
         <p className="form__buttons">
             <button type="submit">Save</button>
-            <button type="button">Cancel</button>
+            <button onClick={() => {
+                navigate(-1)
+            }} type="button">Cancel</button>
         </p>
     </Form>
   );

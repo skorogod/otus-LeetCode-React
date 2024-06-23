@@ -14,7 +14,7 @@ export const prepareRows = (tasks: Task[]) => {
         rows.push({
             id: el.id,
             title: el.title,
-            solution: '',
+            solution: `/tasks/${el.id}`,
             level: el.level.title
         })
     })

@@ -12,7 +12,9 @@ function App() {
       <div className="App">
         <ResponsiveAppBar/>
         <main id='main'>
-          <Outlet/>
+          <div className='custom-container'>
+            <Outlet/>
+          </div>
         </main>
       </div>
     </StyledEngineProvider>
