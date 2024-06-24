@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { FC } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { taskService } from "../../api/services/taskService";
 import { Box } from "@mui/material";
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 import { prepareRows } from "./methods/prepareRows";
 import { Task } from "../../shared/interfaces/Task";
+import { Tags } from "../Tags/Tags";
 
 export const loader = async () => {
     const tasks = await taskService.getTasks()
@@ -13,6 +14,7 @@ export const loader = async () => {
 }
 
 export function Tasks() {
+    console.log("TASKS RENDER")
     const tasks = useLoaderData() as Task[]
 
     const rows = prepareRows(tasks)
@@ -40,6 +42,15 @@ export function Tasks() {
           width: 110,
           editable: true,
         },
+        {
+          field: 'tags',
+          headerName: 'Tags',
+          width: 300,
+          renderCell: (params) => (
+            <Tags tags={params.value}></Tags>
+          )
+          
+        }
       ];
 
     return (

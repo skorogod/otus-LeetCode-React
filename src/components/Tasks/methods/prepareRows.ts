@@ -1,10 +1,12 @@
 import { Task } from "../../../shared/interfaces/Task";
+import { Tag } from "../../../shared/interfaces/Tag";
 
 export type TaskRow = {
     id: number,
     title: string,
     solution: string,
-    level: string
+    level: string,
+    tags: Tag[]
 }
 
 export const prepareRows = (tasks: Task[]) => {
@@ -15,7 +17,8 @@ export const prepareRows = (tasks: Task[]) => {
             id: el.id,
             title: el.title,
             solution: `/tasks/${el.id}`,
-            level: el.level.title
+            level: el.level.title,
+            tags: el.tags
         })
     })
 
