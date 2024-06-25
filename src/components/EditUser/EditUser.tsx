@@ -2,6 +2,8 @@ import { ActionFunctionArgs, Form, useLoaderData, useNavigate } from "react-rout
 import type { User } from "../../shared/interfaces/User";
 import './EditUser.css'
 import { UpdateParams, userService } from "../../api/services/userService";
+import {store} from '../../store/index'
+import { usersActions } from "../../store/usersReducer";
 
 type ActionParams = {
     id: number,
@@ -10,7 +12,7 @@ type ActionParams = {
 export async function action({request, params} : ActionFunctionArgs<{request: Request, params: ActionParams}>) {
     const formData = await request.formData()
     const updates = Object.fromEntries(formData)
-    await userService.updateUser(Number(params.id), updates)
+    store.dispatch(usersActions.updateUser({id: Number(params.id), updates}))
 }
 
 export default function EditUser() {

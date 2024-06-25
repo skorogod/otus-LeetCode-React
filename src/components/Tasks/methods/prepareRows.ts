@@ -6,7 +6,7 @@ export type TaskRow = {
     title: string,
     solution: string,
     level: string,
-    tags: Tag[]
+    tags: {task: Task}
 }
 
 export const prepareRows = (tasks: Task[]) => {
@@ -18,7 +18,7 @@ export const prepareRows = (tasks: Task[]) => {
             title: el.title,
             solution: `/tasks/${el.id}`,
             level: el.level.title,
-            tags: el.tags
+            tags: {task: el}
         })
     })
 

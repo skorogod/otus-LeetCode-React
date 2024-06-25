@@ -49,6 +49,7 @@ export class UserService extends BaseService{
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.userToken}`
             },
             body: JSON.stringify(updates)
         })

@@ -1,7 +1,7 @@
 import { Task } from "../../shared/interfaces/Task";
 import { BaseService } from "./baseService";
 
-type UpdateParams = Omit<Partial<Task>, 'id'>
+export type UpdateParams = Omit<Partial<Task>, 'id'>
 
 export class TaskService extends BaseService {
     private static instance: TaskService | null
@@ -44,10 +44,11 @@ export class TaskService extends BaseService {
     }
 
     async updateTask(id: number, updates: UpdateParams): Promise<Task> {
-        const response = await fetch(`http://localhost:3000/users/${id}`, {
+        const response = await fetch(`http://localhost:3000/tasks/${id}`, {
             method: 'PATCH',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-type': 'application/json',
+                'Authorization': `Bearer ${this.userToken}`
             },
             body: JSON.stringify(updates)
         })

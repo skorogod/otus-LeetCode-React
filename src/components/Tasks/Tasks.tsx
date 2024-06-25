@@ -47,7 +47,7 @@ export function Tasks() {
           headerName: 'Tags',
           width: 300,
           renderCell: (params) => (
-            <Tags tags={params.value}></Tags>
+            <Tags task={params.value.task}></Tags>
           )
           
         }
