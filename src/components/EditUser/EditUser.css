@@ -1,0 +1,16 @@
+.edit-user-form  {
+    display: flex;
+    flex-flow: column;
+    gap: 1.5rem;
+}
+
+.edit-user-form__body {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 1rem;
+}
+
+.form__buttons {
+    display: flex;
+    gap: 1rem;
+}

@@ -1,0 +1,55 @@
+.tags-container {
+}
+
+.tags-list__container {
+    position: absolute;
+    z-index: 2;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    padding: 10px;
+}
+
+.tags-list {
+    display: flex;
+    max-width: 300px;
+    max-height: 200px;
+    overflow: auto;
+    gap: 1rem;
+    flex-flow: row wrap;
+    list-style-type: none;
+}
+
+.tags-list__item__button { 
+    display: inline-block;
+    line-height: 1.1rem;
+    border: 1px solid aqua;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.tags-container__buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.tag {
+    line-height: 1rem;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: inline-block;
+    background-color: whitesmoke;
+    color: black;
+}
+
+.tag_selected {
+    background-color: rgba(36, 201, 110, 0.705);
+}
+
+.tag:hover {
+    background-color: rgba(221, 217, 217, 0.356);
+}
+
+.tag.tag_selected:hover {
+    background-color: rgba(18, 168, 25, 0.637);
+}

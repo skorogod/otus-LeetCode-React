@@ -1,0 +1,11 @@
+.edit-task-container {
+    margin-top: 50px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.edit-task-form__body {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+}
